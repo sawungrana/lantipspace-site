@@ -10,27 +10,29 @@ import rosette from "../ornaments/rosette.svg?raw";
   description="Tools, models, and frozen ASEAN geodata by Azza Sawungrana. Offline transcription, procedural maps, and data in formats that open without a GIS degree."
 >
   <div class="ornament w-full text-ink/35" aria-hidden="true" set:html={headerBand}></div>
-  <div class="mx-auto max-w-4xl px-6">
-    <section class="relative pb-4 pt-12">
+
+  <figure class="relative">
+    <div
+      class="scrim-fade relative z-10 pb-10 pt-10 md:absolute md:inset-x-0 md:top-0 md:pb-24 md:pt-14"
+    >
       <div
-        class="ornament pointer-events-none absolute -right-6 top-4 hidden w-56 text-ink opacity-[0.05] md:block"
+        class="ornament pointer-events-none absolute right-6 top-8 hidden w-56 text-ink opacity-[0.05] md:block"
         aria-hidden="true"
         set:html={rosette}
       >
       </div>
-      <p class="stamp-text text-ink-soft">a small workshop · klaten — enschede</p>
-      <h1 class="mt-4 max-w-2xl text-[2.1rem] leading-[1.15] text-ink-deep md:text-[2.6rem]">
-        A quiet workshop for maps, models, and the data under them.
-      </h1>
-      <p class="mt-6 max-w-2xl">
-        lantip.space is named after my son — <em>lantip</em>, Javanese for sharp. I'm Azza:
-        head of data at Geosquare, researcher at Scalable Lab. This is where the things I
-        build stay in the open. Three shelves, and every link points at a file that exists.
-      </p>
-    </section>
-  </div>
-
-  <figure class="mt-10">
+      <div class="mx-auto max-w-4xl px-6">
+        <p class="stamp-text text-ink-soft">a small workshop · klaten — enschede</p>
+        <h1 class="mt-4 max-w-2xl text-[2.1rem] leading-[1.15] text-ink-deep md:text-[2.6rem]">
+          A quiet workshop for maps, models, and the data under them.
+        </h1>
+        <p class="mt-6 max-w-2xl">
+          lantip.space is named after my son — <em>lantip</em>, Javanese for sharp. I'm Azza:
+          head of data at Geosquare, researcher at Scalable Lab. This is where the things I
+          build stay in the open. Three shelves, and every link points at a file that exists.
+        </p>
+      </div>
+    </div>
     <img
       src="/plates/batavia-roadstead.webp"
       width="1440"

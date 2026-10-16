@@ -58,4 +58,10 @@ Format: `## YYYY-MM-DD — title`, then bullets: what changed, what broke, what'
   1709×1152 (270 KB), banda 1325×828 (211 KB — native crop limit of the 1920px download).
 - `og.jpg` regenerated from the new banner (216 KB). All budgets still met.
 - QA: build passes; re-screenshotted home, lantipscript, lantev, cartouche, not-doing.
+- Round 2 (same day): home H1 + intro and the footer content now sit **on top of the
+  engravings**, behind a paper veil (`.scrim-fade`) that is solid behind the text and fades
+  over its last 6rem into the image — readable at 4.5:1+ everywhere. On mobile the text
+  stacks above the image instead. Footer strip re-cropped taller (1600×720, sky + skyline +
+  ships, 240 KB) so the footer text has engraving to sit on; the wave divider ornament was
+  removed from the footer (the strip is the ornament now).
 - Next: same as session 2 (Cloudflare cutover; v1.0.0 asset links).

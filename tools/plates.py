@@ -24,7 +24,7 @@ PLATES = [
     dict(name="batavia-roadstead", src="batavia-roadstead.jpg",
          crop=(0.07, 0.93, 0.03, 0.88), width=1440, quality=66),
     dict(name="footer-strip", src="batavia-roadstead.jpg",
-         crop=(0.07, 0.93, 0.44, 0.80), width=1600, quality=70),
+         crop=(0.07, 0.93, 0.30, 0.84), width=1600, quality=68),
     dict(name="banda-roadstead", src="banda-roadstead.jpg",
          crop=(0.155, 0.845, 0.145, 0.78), width=1800, quality=66),
     dict(name="sumbing", src="sumbing.jpg",
