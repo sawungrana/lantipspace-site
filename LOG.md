@@ -103,3 +103,18 @@ Format: `## YYYY-MM-DD — title`, then bullets: what changed, what broke, what'
   (`..._aarch64_full.dmg` vs actual `lantipscript_full_mac_1.0.0_aarch64.dmg`).
 - Next: Cloudflare Pages — create project from this repo, then move `lantip.space` off
   the old project (steps in HANDOVER + chat).
+
+## 2026-10-16 — session 6: languages section
+
+- `/lantipscript` gains a **Languages** section (after Pick a build): all builds ship
+  multilingual models (no .en variants), auto-detect, no settings. Lite/Express share 99
+  languages; Full's newer model adds Cantonese (100). Call-out that Indonesian, Javanese,
+  Sundanese, and Malay are all included.
+- Full list (99 entries, code + name) sits in a native `<details>` box (zero JS, mono);
+  verified exactly 99 items render from the built HTML.
+- Honest nuance stated: supported ≠ accurate — small models mishear more on low-resource
+  languages, only English + Bahasa Indonesia are tested/promised, everything else is a
+  first pass. Removed the now-misleading "English and Bahasa Indonesia are detected
+  automatically" line from Using it (auto-detect covers the whole set).
+- HANDOVER: bullet added (update Languages counts/list when models change).
+- Next: same as session 5 (Cloudflare project + domain move).

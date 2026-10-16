@@ -53,6 +53,9 @@ npm run preview
   `src/pages/lantipscript.astro` and the tier map in `src/pages/catalog.json.ts` (asset
   sizes: `gh api repos/sawungrana/lantipscript/releases/tags/<tag>`; the table shows MiB,
   rounded). The releases page stays linked as the fallback.
+- **Lantipscript models change:** the Languages section of `/lantipscript` (99/100 counts
+  + the `<details>` list) describes what the shipped models carry — update it alongside the
+  builds table. Only English and Bahasa Indonesia are promised (the tested pair).
 - **First dataset published:** add its entry to `src/pages/catalog.json.ts`, turn the
   `/data` empty state into a real shelf, and mirror the HF README (write once, publish
   twice — see parent `plan.md`).
