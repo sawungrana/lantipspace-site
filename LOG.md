@@ -86,3 +86,20 @@ Format: `## YYYY-MM-DD — title`, then bullets: what changed, what broke, what'
 - QA: build passes (8 pages), meta verified per page in `dist/`; cards viewed, hero/footer
   re-screenshotted.
 - Next: same as session 2 (Cloudflare cutover; v1.0.0 asset links).
+
+## 2026-10-16 — session 5: direct download links (v1.0.0 is out)
+
+- LantipScript v1.0.0 published on GitHub (6 assets, verified via API and two spot-checked
+  HEAD requests). `/lantipscript` now links **direct release assets**: the builds table's
+  download column carries two stacked links per build — macOS (Apple silicon) + Windows
+  (64-bit) with per-OS sizes (Full 538/545 MB, Lite 204/226 MB, Express 56/81 MB — MiB,
+  rounded). Top CTA scrolls to `#builds`; releases page kept as fallback link under the
+  table; explicit line that there is no Intel-Mac build.
+- `catalog.json` downloads now map tier -> direct URLs (`full`/`lite`/`express` ×
+  `macos_apple_silicon`/`windows_x64`).
+- HANDOVER: stale `master` -> `main` fixed; release-links bullet rewritten (filename
+  pattern + "update six hrefs + catalog on next release").
+- Nit for the lantipscript repo: v1.0.0 release notes list wrong asset filenames
+  (`..._aarch64_full.dmg` vs actual `lantipscript_full_mac_1.0.0_aarch64.dmg`).
+- Next: Cloudflare Pages — create project from this repo, then move `lantip.space` off
+  the old project (steps in HANDOVER + chat).

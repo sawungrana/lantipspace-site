@@ -14,6 +14,18 @@ const catalog = {
       source: REPO,
       downloads: {
         releases: `${REPO}/releases`,
+        full: {
+          macos_apple_silicon: `${REPO}/releases/download/v1.0.0/lantipscript_full_mac_1.0.0_aarch64.dmg`,
+          windows_x64: `${REPO}/releases/download/v1.0.0/lantipscript_full_windows_1.0.0_x64.exe`,
+        },
+        lite: {
+          macos_apple_silicon: `${REPO}/releases/download/v1.0.0/lantipscript_lite_mac_1.0.0_aarch64.dmg`,
+          windows_x64: `${REPO}/releases/download/v1.0.0/lantipscript_lite_windows_1.0.0_x64.exe`,
+        },
+        express: {
+          macos_apple_silicon: `${REPO}/releases/download/v1.0.0/lantipscript_express_mac_1.0.0_aarch64.dmg`,
+          windows_x64: `${REPO}/releases/download/v1.0.0/lantipscript_express_windows_1.0.0_x64.exe`,
+        },
       },
     },
   ],

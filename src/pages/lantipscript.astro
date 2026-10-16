@@ -11,19 +11,40 @@ const builds = [
     name: "Full",
     when: "your computer is recent — an Apple silicon Mac, or a PC with a working GPU",
     speed: "best accuracy",
-    size: "538 MB",
+    mac: {
+      size: "538 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_full_mac_1.0.0_aarch64.dmg`,
+    },
+    win: {
+      size: "545 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_full_windows_1.0.0_x64.exe`,
+    },
   },
   {
     name: "Lite",
     when: "your computer is older, or you're not sure",
     speed: "fast, close to Full",
-    size: "204 MB",
+    mac: {
+      size: "204 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_lite_mac_1.0.0_aarch64.dmg`,
+    },
+    win: {
+      size: "226 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_lite_windows_1.0.0_x64.exe`,
+    },
   },
   {
     name: "Express",
     when: "the download needs to be small, or you want a rough first pass",
     speed: "fastest, least accurate",
-    size: "56 MB",
+    mac: {
+      size: "56 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_express_mac_1.0.0_aarch64.dmg`,
+    },
+    win: {
+      size: "81 MB",
+      href: `${REPO}/releases/download/v1.0.0/lantipscript_express_windows_1.0.0_x64.exe`,
+    },
   },
 ];
 ---
@@ -46,10 +67,10 @@ const builds = [
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
       <a
-        href={RELEASES}
+        href="#builds"
         class="stamp-text border border-accent bg-accent-bright/10 px-4 py-2.5 text-accent no-underline hover:bg-accent-bright/20"
       >
-        download — github releases ↗
+        download — pick a build ↓
       </a>
       <a
         href={REPO}
@@ -59,7 +80,7 @@ const builds = [
       </a>
     </div>
     <p class="stamp-text mt-3 text-ink-soft">
-      installers are attached to the releases page · the builds differ only in the listening model they carry
+      each build ships as a macOS (Apple silicon) and a Windows (64-bit) download · the builds differ only in the listening model they carry
     </p>
 
   </div>
@@ -95,7 +116,7 @@ const builds = [
       </p>
     </section>
 
-    <section class="mt-16">
+    <section class="mt-16" id="builds">
       <h2 class="text-[1.5rem] text-ink-deep">Pick a build</h2>
       <p class="mt-3 max-w-2xl text-ink-soft">
         All builds are the same app, and all of them are fully offline. The only difference
@@ -114,11 +135,22 @@ const builds = [
           <tbody>
             {
               builds.map((b) => (
-                <tr class="border-b rule-line">
+                <tr class="border-b rule-line align-top">
                   <td class="py-3 pr-4 font-semibold text-ink-deep">{b.name}</td>
                   <td class="py-3 pr-4">{b.when}</td>
                   <td class="py-3 pr-4">{b.speed}</td>
-                  <td class="py-3 font-mono text-[0.85rem]">{b.size}</td>
+                  <td class="py-3">
+                    <div class="flex flex-col gap-1">
+                      <a href={b.mac.href} class="whitespace-nowrap text-accent no-underline hover:underline">
+                        macOS (Apple silicon) ·{" "}
+                        <span class="font-mono text-[0.85rem]">{b.mac.size}</span> ↓
+                      </a>
+                      <a href={b.win.href} class="whitespace-nowrap text-accent no-underline hover:underline">
+                        Windows (64-bit) ·{" "}
+                        <span class="font-mono text-[0.85rem]">{b.win.size}</span> ↓
+                      </a>
+                    </div>
+                  </td>
                 </tr>
               ))
             }
@@ -128,6 +160,10 @@ const builds = [
       <p class="mt-4 max-w-2xl">
         If you'd rather not decide: Full if the machine is new, Lite if it isn't. The gear
         icon shows which build is running and whether it got GPU acceleration.
+      </p>
+      <p class="mt-4 max-w-2xl text-ink-soft">
+        macOS installers are for Apple silicon Macs — there is no Intel-Mac build. The full
+        file list and release notes also live on the <a href={RELEASES}>releases page ↗</a>.
       </p>
     </section>
 
