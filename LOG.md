@@ -65,3 +65,24 @@ Format: `## YYYY-MM-DD — title`, then bullets: what changed, what broke, what'
   ships, 240 KB) so the footer text has engraving to sit on; the wave divider ornament was
   removed from the footer (the strip is the ornament now).
 - Next: same as session 2 (Cloudflare cutover; v1.0.0 asset links).
+
+## 2026-10-16 — session 4: veil v2, colophon trim, OG thumbnails
+
+- User feedback round 3: the paper veil read as the image being *cut* (solid behind text,
+  engineered fade below); colophon was too revealing of internal thought; wanted a social
+  thumbnail for every item page, not just the site.
+- `.scrim-fade` replaced with a translucent ramp (`0.92 → 0.88 @ 72% → 0.45 @ 90% → 0`):
+  the engraving now ghosts through behind the hero and footer text (plate edge, clouds,
+  masts all faintly visible) and there is no hard cut line. Text stays in the ≥0.88 band
+  (hero/footer padded with `pb-32`). Verified at 1280 and 1680.
+- Colophon rewritten high level: dropped "The site", "Type", "Ornaments"; now Plates
+  (license ledger), Why lantip (one line), Elsewhere (GitHub + Hugging Face, both real),
+  corrections via site-repo issues.
+- `tools/plates.py` `make_og()` parameterized; now generates 5 cards, all 1200×630 JPEG:
+  `og.jpg` (wordmark lockup, roadstead) + `og/{lantipscript,cartouche,lantev,data}.jpg`
+  (page title left, `L A N T I P . S P A C E` stamp right, each page's own engraving;
+  map card covers a crop around the castle + star fort). `Base.astro` has an `ogImage`
+  prop (default `/og.jpg`); item pages pass their card; `twitter:image` added.
+- QA: build passes (8 pages), meta verified per page in `dist/`; cards viewed, hero/footer
+  re-screenshotted.
+- Next: same as session 2 (Cloudflare cutover; v1.0.0 asset links).

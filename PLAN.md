@@ -84,7 +84,7 @@ reconstructions of engravings.
 | `/lantev` | WIP. One-paragraph definition, "no endpoint yet", eval-first intent. |
 | `/data` | Only live files; honest empty state until the first sheet lands. |
 | `/not-doing` | The deliberately-not-doing list (from parent `plan.md` §1.6). |
-| `/colophon` | Stack, fonts, image licenses, why "Lantip", contact, no analytics. |
+| `/colophon` | Plate sources + licenses, why "lantip", elsewhere, corrections. High level only. |
 | `/catalog.json` | Machine-readable endpoints. Only live artifacts. |
 | `/404` | Quiet, on-theme. |
 

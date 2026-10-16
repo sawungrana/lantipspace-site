@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # raw plate scans (re-download from links in SOURCES.md)
 assets-src/
+__pycache__/

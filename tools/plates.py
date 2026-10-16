@@ -2,7 +2,7 @@
 """plates.py — convert public-domain engraving scans into navy duotone plates.
 
 Input : assets-src/plates/*.jpg (not in git; re-downloadable from SOURCES.md links)
-Output: public/plates/*.webp  +  public/og.png
+Output: public/plates/*.webp  +  public/og.jpg  +  public/og/*.jpg
 
 Usage: python3 tools/plates.py
 """
@@ -35,6 +35,26 @@ PLATES = [
          crop=(0.03, 0.97, 0.015, 0.225), width=1400, quality=78),
     dict(name="casteel", src="casteel-1767.jpg",
          crop=(0.0, 1.0, 0.0, 1.0), width=1138, quality=80),
+]
+
+# OG cards (1200x630). General card keeps the wordmark lockup; item cards are
+# balanced: page title left, site stamp right.
+CARDS = [
+    dict(name="og.jpg", plate="batavia-roadstead.webp", big="lantip.space",
+         small="a quiet workshop for maps and their data",
+         right="T O O L S   ·   M O D E L S   ·   D A T A", focus=0.5),
+    dict(name="og/lantipscript.jpg", plate="banda-roadstead.webp", big="LantipScript",
+         small="a transcriber that stays on your computer",
+         right="L A N T I P . S P A C E", focus=0.5),
+    dict(name="og/cartouche.jpg", plate="batavia-cartouche.webp", big="Cartouche",
+         small="maps made by asking",
+         right="L A N T I P . S P A C E", focus=0.5),
+    dict(name="og/lantev.jpg", plate="sumbing.webp", big="Lantev",
+         small="small decision heads on Earth embeddings",
+         right="L A N T I P . S P A C E", focus=0.5),
+    dict(name="og/data.jpg", plate="batavia-map.webp", big="Data",
+         small="frozen ASEAN geodata",
+         right="L A N T I P . S P A C E", focus=0.68),
 ]
 
 
@@ -75,21 +95,28 @@ def main() -> None:
         print(f"{dest.name:28} {img.width}x{img.height}  {dest.stat().st_size / 1024:.0f} KB")
 
 
-def make_og() -> None:
-    """OG card: engraved banner in a plate frame + wordmark, 1200x630."""
-    banner = Image.open(OUT / "batavia-roadstead.webp").convert("RGB")
+def make_og(card) -> None:
+    """OG card: engraved banner in a plate frame, left lockup + right mono line.
+
+    name  : output path under public/
+    plate : webp in OUT to use as the banner
+    big   : Georgia line (page title, or wordmark for the general card)
+    small : italic subtitle under it
+    right : mono line, bottom-right
+    focus : 0..1 vertical focus for the cover-crop (0.5 = centre)
+    """
+    banner = Image.open(OUT / card["plate"]).convert("RGB")
     canvas = Image.new("RGB", (1200, 630), PAPER)
     draw = ImageDraw.Draw(canvas)
 
-    frame = INK
     for xy, w in (((10, 10, 1189, 619), 1), ((16, 16, 1183, 613), 2)):
-        draw.rectangle(xy, outline=frame, width=w)
+        draw.rectangle(xy, outline=INK, width=w)
 
     img_w, img_h = 1140, 496
     ratio = max(img_w / banner.width, img_h / banner.height)
     resized = banner.resize((round(banner.width * ratio), round(banner.height * ratio)), Image.LANCZOS)
     left = (resized.width - img_w) // 2
-    top = (resized.height - img_h) // 2
+    top = round((resized.height - img_h) * card.get("focus", 0.5))
     canvas.paste(resized.crop((left, top, left + img_w, top + img_h)), (30, 30))
     draw.rectangle((30, 30, 30 + img_w - 1, 30 + img_h - 1), outline=INK, width=1)
 
@@ -97,18 +124,19 @@ def make_og() -> None:
     georgia_sm = ImageFont.truetype("/System/Library/Fonts/Supplemental/Georgia Italic.ttf", 19)
     mono = ImageFont.truetype("/System/Library/Fonts/Menlo.ttc", 15)
 
-    draw.text((34, 540), "lantip.space", font=georgia, fill=INK)
-    draw.text((34, 582), "a quiet workshop for maps and their data", font=georgia_sm, fill=(74, 100, 134))
+    draw.text((34, 540), card["big"], font=georgia, fill=INK)
+    draw.text((34, 582), card["small"], font=georgia_sm, fill=(74, 100, 134))
 
-    tag = "T O O L S   ·   M O D E L S   ·   D A T A"
-    tw = draw.textlength(tag, font=mono)
-    draw.text((1160 - tw, 558), tag, font=mono, fill=INK)
+    tw = draw.textlength(card["right"], font=mono)
+    draw.text((1160 - tw, 558), card["right"], font=mono, fill=INK)
 
-    dest = ROOT / "public" / "og.jpg"
+    dest = ROOT / "public" / card["name"]
+    dest.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(dest, "JPEG", quality=88, optimize=True)
     print(f"{dest.name:28} 1200x630  {dest.stat().st_size / 1024:.0f} KB")
 
 
 if __name__ == "__main__":
     main()
-    make_og()
+    for card in CARDS:
+        make_og(card)

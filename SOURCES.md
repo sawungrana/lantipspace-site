@@ -22,6 +22,13 @@ Originals live in `assets-src/plates/` (not committed; re-download from the link
 No banknote scans are used anywhere on the site — currency reproduction law varies by
 jurisdiction and the theme doesn't need them.
 
+## Social cards
+
+`public/og.jpg` (general) and `public/og/{lantipscript,cartouche,lantev,data}.jpg` are
+composed by `tools/plates.py` from the same engravings above (no new sources); the type on
+them is set in Georgia/Menlo at build time on the maintainer's machine and rendered to
+pixels, so no font files ship inside the cards.
+
 ## Ornaments (guilloche)
 
 `tools/guilloche.mjs` is an original implementation of standard spirograph mathematics

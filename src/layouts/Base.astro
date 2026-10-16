@@ -8,12 +8,13 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogImage = "/og.jpg" } = Astro.props;
 const site = Astro.site ?? new URL("https://lantip.space");
 const canonical = new URL(Astro.url.pathname, site).href;
-const ogImage = new URL("/og.jpg", site).href;
+const ogImageUrl = new URL(ogImage, site).href;
 ---
 <!doctype html>
 <html lang="en">
@@ -32,8 +33,9 @@ const ogImage = new URL("/og.jpg", site).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta name="theme-color" content="#f5f0e6" />
   </head>
   <body class="flex min-h-screen flex-col">
