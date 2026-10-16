@@ -1,0 +1,74 @@
+---
+import Base from "../layouts/Base.astro";
+
+const items = [
+  {
+    title: "Nightlights, fire hotspots, live feeds",
+    why: "Anything that needs fresh pixels hourly is someone else's product, not mine.",
+  },
+  {
+    title: "Global anything",
+    why: "Region first, region only. The world has enough generic basemaps.",
+  },
+  {
+    title: "Live APIs and tile servers",
+    why: "Static files only. A file on Hugging Face is up when the site is down.",
+  },
+  {
+    title: "Sub-annual change promises",
+    why: "The data is annual composites. Promising finer resolution would be lying.",
+  },
+  {
+    title: "High-zoom basemaps",
+    why: "z0–z10 is a dataset; z18 is a bandwidth commitment.",
+  },
+  {
+    title: "A support email answered within a week",
+    why: "There is no support email. Issues on GitHub, best effort.",
+  },
+];
+---
+<Base
+  title="not doing — lantip.space"
+  description="The things I've decided not to build, written down so nobody waits for them."
+>
+  <div class="mx-auto max-w-4xl px-6 pt-12">
+    <p class="stamp-text text-ink-soft">house rules</p>
+    <h1 class="mt-3 text-[2.2rem] leading-none text-ink-deep">Not doing</h1>
+    <p class="mt-5 max-w-2xl text-[1.15rem]">
+      Things I've decided not to do, so nobody waits for them.
+    </p>
+
+    <ul class="mt-12 max-w-2xl space-y-8">
+      {
+        items.map((item) => (
+          <li class="border-l-2 border-accent/50 pl-5">
+            <h2 class="text-[1.15rem] font-semibold text-ink-deep">{item.title}</h2>
+            <p class="mt-1">{item.why}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="mt-12 max-w-2xl">
+      This list is the easiest page on the site to keep, and the most useful one to read
+      before asking.
+    </p>
+
+    <figure class="mt-16 max-w-2xl pb-4">
+      <div class="plate-frame">
+        <img
+          src="/plates/casteel.webp"
+          width="1138"
+          height="672"
+          alt="Engraving of the castle of Batavia seen from the water gate, 1767"
+          class="block h-auto w-full"
+          loading="lazy"
+        />
+      </div>
+      <figcaption class="stamp-text mt-3 text-ink-soft">
+        the castle at batavia, 1767 — some things last by being left alone
+      </figcaption>
+    </figure>
+  </div>
+</Base>

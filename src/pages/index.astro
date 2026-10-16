@@ -1,0 +1,93 @@
+---
+import Base from "../layouts/Base.astro";
+import Plate from "../components/Plate.astro";
+import Rule from "../components/Rule.astro";
+import headerBand from "../ornaments/header-band.svg?raw";
+import rosette from "../ornaments/rosette.svg?raw";
+---
+<Base
+  title="lantip.space — a quiet workshop for maps, models, and the data under them"
+  description="Tools, models, and frozen ASEAN geodata by Azza Sawungrana. Offline transcription, procedural maps, and data in formats that open without a GIS degree."
+>
+  <div class="ornament w-full text-ink/35" aria-hidden="true" set:html={headerBand}></div>
+  <div class="mx-auto max-w-4xl px-6">
+    <section class="relative pb-4 pt-12">
+      <div
+        class="ornament pointer-events-none absolute -right-6 top-4 hidden w-56 text-ink opacity-[0.05] md:block"
+        aria-hidden="true"
+        set:html={rosette}
+      >
+      </div>
+      <p class="stamp-text text-ink-soft">a small workshop · klaten — enschede</p>
+      <h1 class="mt-4 max-w-2xl text-[2.1rem] leading-[1.15] text-ink-deep md:text-[2.6rem]">
+        A quiet workshop for maps, models, and the data under them.
+      </h1>
+      <p class="mt-6 max-w-2xl">
+        lantip.space is named after my son — <em>lantip</em>, Javanese for sharp. I'm Azza:
+        head of data at Geosquare, researcher at Scalable Lab. This is where the things I
+        build stay in the open. Three shelves, and every link points at a file that exists.
+      </p>
+    </section>
+
+    <figure class="mt-10">
+      <div class="plate-frame">
+        <img
+          src="/plates/batavia-roadstead.webp"
+          width="1400"
+          height="991"
+          alt="Engraving of Dutch ships on the roadstead at Batavia, with the city and mountains behind"
+          class="block h-auto w-full"
+          loading="eager"
+        />
+      </div>
+      <figcaption class="stamp-text mt-3 text-ink-soft">
+        the roadstead at batavia — rijksmuseum, cc0 · every plate on this site is public domain; sources in the
+        <a href="/colophon">colophon</a>
+      </figcaption>
+    </figure>
+
+    <section class="mt-16" aria-label="the shelves">
+      <div class="grid gap-5 md:grid-cols-2">
+        <Plate
+          shelf="tools"
+          title="LantipScript"
+          status="v1.0.0 · released"
+          statusTone="accent"
+          href="/lantipscript"
+        >
+          Transcribes interviews offline, so research audio never leaves your laptop. The
+          listening model ships inside the app — no model download screen, no account, no
+          telemetry. The one here that's genuinely finished.
+        </Plate>
+        <Plate shelf="tools" title="Cartouche" status="in progress" href="/cartouche">
+          Makes maps by asking, in styles borrowed from real cartography — engraved atlas
+          plates, transit diagrams, topographic surveys. Sometimes the maps are correct. No
+          download yet.
+        </Plate>
+        <Plate shelf="models" title="Lantev" status="not yet" href="/lantev">
+          Small decision heads on frozen Earth embeddings. Currently one experiment that may
+          not work. No endpoint exists, and the eval suite comes first.
+        </Plate>
+        <Plate shelf="data" title="Commercial-area grids" status="not yet" href="/data">
+          Commercial hubs of big Asian cities, derived from Overture and OSM on a grid,
+          published as GeoParquet and PMTiles on Hugging Face. The first sheet is still
+          being cut.
+        </Plate>
+      </div>
+    </section>
+
+    <Rule />
+
+    <section class="max-w-2xl pb-4">
+      <p>
+        Everything here is Southeast Asia first, because that's where I am and where the
+        tooling is thinnest. Downloads live where they belong — tools on GitHub Releases,
+        data on Hugging Face — and when something isn't ready, the page says so.
+      </p>
+      <p class="mt-4">
+        <a href="/not-doing">What I'm deliberately not doing</a> is a page too. It's more
+        useful than a roadmap.
+      </p>
+    </section>
+  </div>
+</Base>

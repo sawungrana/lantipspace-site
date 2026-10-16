@@ -1,0 +1,36 @@
+---
+import Mark from "./Mark.astro";
+
+const path = Astro.url.pathname;
+const links = [
+  { href: "/lantipscript", label: "lantipscript" },
+  { href: "/cartouche", label: "cartouche" },
+  { href: "/lantev", label: "lantev" },
+  { href: "/data", label: "data" },
+];
+---
+<header class="border-b rule-line">
+  <div class="mx-auto flex max-w-4xl items-center justify-between gap-6 px-6 py-5">
+    <a href="/" class="flex items-center gap-2.5 text-ink-deep no-underline">
+      <span class="text-ink"><Mark size={19} /></span>
+      <span class="text-[1.06rem] font-semibold tracking-wide">lantip.space</span>
+    </a>
+    <nav aria-label="shelves" class="flex flex-wrap items-center gap-x-5 gap-y-1 text-[0.95rem]">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class:list={[
+              "no-underline",
+              path.startsWith(l.href)
+                ? "font-semibold text-ink-deep"
+                : "text-ink-soft hover:text-accent",
+            ]}
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

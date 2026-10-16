@@ -1,0 +1,28 @@
+---
+import Base from "../layouts/Base.astro";
+import rosette from "../ornaments/rosette.svg?raw";
+---
+<Base
+  title="404 — lantip.space"
+  description="This corner of the plate was never engraved."
+>
+  <div class="mx-auto flex max-w-4xl flex-col items-start px-6 pt-24">
+    <div
+      class="ornament w-40 text-ink opacity-[0.12]"
+      aria-hidden="true"
+      set:html={rosette}
+    >
+    </div>
+    <p class="stamp-text mt-10 text-ink-soft">plate missing</p>
+    <h1 class="mt-3 text-[2.2rem] leading-none text-ink-deep">404</h1>
+    <p class="mt-5 max-w-xl">
+      This corner of the plate was never engraved. Whatever you were looking for, the
+      catalogue probably doesn't have it yet.
+    </p>
+    <p class="mt-8">
+      <a href="/" class="stamp-text border border-rule-strong px-4 py-2.5 no-underline">
+        back to the workshop
+      </a>
+    </p>
+  </div>
+</Base>

@@ -1,0 +1,37 @@
+---
+interface Props {
+  label?: string;
+  value: string;
+}
+
+const { label, value } = Astro.props;
+---
+<div class="mt-4">
+  {label && <p class="stamp-text mb-1.5 text-ink-soft">{label}</p>}
+  <div class="flex items-stretch border rule-line bg-paper-deep/40">
+    <code class="flex-1 break-all px-3 py-2 font-mono text-[0.82rem] text-ink-deep">{value}</code>
+    <button
+      type="button"
+      data-copy={value}
+      class="stamp-text cursor-pointer border-l rule-line px-3 text-ink-soft hover:text-accent"
+    >
+      copy
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = "copied";
+        window.setTimeout(() => (btn.textContent = old), 1500);
+      } catch {
+        /* clipboard unavailable; leave the text selectable instead */
+      }
+    });
+  });
+</script>

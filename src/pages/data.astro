@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+import Stamp from "../components/Stamp.astro";
+
+const formats = [
+  { kind: "raster", have: "COG or Zarr", never: "a plain GeoTIFF" },
+  { kind: "vector tiles", have: "PMTiles", never: "a tile server" },
+  { kind: "tables", have: "GeoParquet, partitioned by country", never: ".zip of shapefiles" },
+];
+---
+<Base
+  title="data — frozen ASEAN geodata"
+  description="Commercial-area grids for big Asian cities, derived from Overture and OSM, published as GeoParquet and PMTiles on Hugging Face. First release in preparation."
+>
+  <div class="mx-auto max-w-4xl px-6 pt-12">
+    <p class="stamp-text text-ink-soft">data</p>
+    <div class="mt-3 flex flex-wrap items-center gap-4">
+      <h1 class="text-[2.2rem] leading-none text-ink-deep">Data</h1>
+      <Stamp label="in preparation" />
+    </div>
+    <p class="mt-5 max-w-2xl text-[1.15rem]">
+      Frozen ASEAN geodata, clipped and re-saved with more care than skill.
+    </p>
+    <p class="mt-5 max-w-2xl">
+      The first product: commercial areas of big Asian cities, derived from Overture and OSM
+      and aggregated on a grid. Published on Hugging Face as GeoParquet and PMTiles, where
+      both formats range-read directly — DuckDB queries via
+      <code class="font-mono text-[0.85rem]">hf://</code>, MapLibre reads tiles from a URL.
+      No tile server anywhere.
+    </p>
+
+    <figure class="mt-12">
+      <div class="plate-frame">
+        <img
+          src="/plates/batavia-map.webp"
+          width="1000"
+          height="1441"
+          alt="Engraved 18th-century plan of Batavia showing streets, canals, and the fort"
+          class="block h-auto w-full"
+          loading="lazy"
+        />
+      </div>
+      <figcaption class="stamp-text mt-3 text-ink-soft">
+        a plan of batavia, 18th century — grid systems are older than they look
+      </figcaption>
+    </figure>
+
+    <section class="mt-16 max-w-2xl">
+      <h2 class="text-[1.5rem] text-ink-deep">Status</h2>
+      <p class="mt-4">
+        Nothing is published yet. When the first sheet lands, it appears here with a
+        verify-one-liner you can paste into DuckDB to check the file yourself, and a
+        known-issues list that includes my own bugs.
+      </p>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="text-[1.5rem] text-ink-deep">How things ship</h2>
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full min-w-[32rem] border-collapse text-[0.98rem]">
+          <thead>
+            <tr class="border-b border-rule-strong text-left">
+              <th class="stamp-text py-2 pr-4 font-normal text-ink-soft">kind</th>
+              <th class="stamp-text py-2 pr-4 font-normal text-ink-soft">format</th>
+              <th class="stamp-text py-2 font-normal text-ink-soft">never</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              formats.map((f) => (
+                <tr class="border-b rule-line">
+                  <td class="py-3 pr-4 font-semibold text-ink-deep">{f.kind}</td>
+                  <td class="py-3 pr-4">{f.have}</td>
+                  <td class="py-3 text-ink-soft">{f.never}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-6 max-w-2xl">
+        Every release carries three things: the artifact, a README with the exact command
+        that built it, and a license ledger. If one script can't rebuild it, it doesn't
+        ship.
+      </p>
+    </section>
+  </div>
+</Base>

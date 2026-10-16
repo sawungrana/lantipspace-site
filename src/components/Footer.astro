@@ -1,0 +1,42 @@
+---
+import divider from "../ornaments/divider.svg?raw";
+
+const year = new Date().getFullYear();
+const links = [
+  { href: "/data", label: "data" },
+  { href: "/not-doing", label: "not doing" },
+  { href: "/colophon", label: "colophon" },
+  { href: "https://github.com/sawungrana", label: "github" },
+];
+---
+<footer class="mt-24">
+  <div class="mx-auto max-w-4xl px-6">
+    <div class="flex items-center gap-4" aria-hidden="true">
+      <span class="h-px flex-1 bg-rule"></span>
+      <span class="ornament w-36 shrink-0 text-ink-soft/60" set:html={divider}></span>
+      <span class="h-px flex-1 bg-rule"></span>
+    </div>
+    <div class="flex flex-col justify-between gap-6 py-10 md:flex-row md:items-end">
+      <div>
+        <p class="text-ink-deep">
+          lantip.space is named after Lantip — Javanese for sharp.
+        </p>
+        <p class="text-[0.95rem] text-ink-soft">
+          A quiet workshop for maps, models, and the data under them.
+        </p>
+      </div>
+      <nav class="stamp-text flex flex-wrap gap-x-5 gap-y-2" aria-label="footer">
+        {
+          links.map((l) => (
+            <a href={l.href} class="text-ink-soft no-underline hover:text-accent">
+              {l.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+    <p class="stamp-text pb-8 text-ink-soft/80">
+      no analytics · no cookies · no newsletter · {year}
+    </p>
+  </div>
+</footer>

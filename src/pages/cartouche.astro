@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+import Stamp from "../components/Stamp.astro";
+import rosette from "../ornaments/rosette.svg?raw";
+---
+<Base
+  title="cartouche — maps made by asking"
+  description="Cartouche turns a plain request into a map recipe and renders plates in styles borrowed from real cartography. In progress; no download yet."
+>
+  <div class="mx-auto max-w-4xl px-6 pt-12">
+    <p class="stamp-text text-ink-soft">tools</p>
+    <div class="mt-3 flex flex-wrap items-center gap-4">
+      <h1 class="text-[2.2rem] leading-none text-ink-deep">Cartouche</h1>
+      <Stamp label="in progress" />
+    </div>
+    <p class="mt-5 max-w-2xl text-[1.15rem]">
+      A mapping tool that makes maps the way you'd ask Eratosthenes to make you one.
+    </p>
+    <p class="mt-5 max-w-2xl">
+      Cartouche turns a plain request into a map recipe — layers, styles, labels — and
+      renders plates in styles borrowed from real cartography: engraved atlas sheets,
+      transit diagrams, topographic surveys. An agent helps translate intent into recipes,
+      but the renderer stays procedural and inspectable, so what comes out is a recipe you
+      can edit, not a picture you can't.
+    </p>
+
+    <div class="relative mt-12">
+      <div
+        class="ornament pointer-events-none absolute -right-8 -top-8 hidden w-40 text-ink opacity-[0.07] md:block"
+        aria-hidden="true"
+        set:html={rosette}
+      >
+      </div>
+      <figure>
+        <div class="plate-frame">
+          <img
+            src="/plates/batavia-cartouche.webp"
+            width="1150"
+            height="504"
+            alt="Engraved title cartouche from an 18th-century plan of Batavia, with figures and lettering"
+            class="block h-auto w-full"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="stamp-text mt-3 text-ink-soft">
+          a cartouche — the ornamental frame around a map's title — from an 18th-century plan of batavia
+        </figcaption>
+      </figure>
+    </div>
+
+    <section class="mt-16 max-w-2xl">
+      <h2 class="text-[1.5rem] text-ink-deep">Status</h2>
+      <p class="mt-4">
+        There's no download yet, and nothing is public. When there is, the installer and
+        the repository will appear here — not before.
+      </p>
+      <p class="mt-4">
+        The first styles being built are the engraved sheet (this site's own plate
+        language), a schematic transit style, and a clean survey style for print. Maps get
+        a scale bar and a north arrow because a map without them is a drawing.
+      </p>
+    </section>
+  </div>
+</Base>

@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import Stamp from "../components/Stamp.astro";
+---
+<Base
+  title="lantev — small decision heads on Earth embeddings"
+  description="Lantev is a family of small, calibrated decision heads on frozen Earth embeddings, with a text bridge. In development; no endpoint exists yet."
+>
+  <div class="mx-auto max-w-4xl px-6 pt-12">
+    <p class="stamp-text text-ink-soft">models</p>
+    <div class="mt-3 flex flex-wrap items-center gap-4">
+      <h1 class="text-[2.2rem] leading-none text-ink-deep">Lantev</h1>
+      <Stamp label="in development" />
+    </div>
+    <p class="mt-5 max-w-2xl text-[1.15rem]">
+      A family of small, calibrated decision heads on frozen Earth embeddings — with a text
+      bridge, so a class label is a phrase you type rather than an index you memorise.
+    </p>
+    <p class="mt-5 max-w-2xl">
+      The substrate isn't mine: frozen embeddings from Tessera and AlphaEarth. What's being
+      built here is the thin part on top — the decision head, the bridge, the calibration,
+      and the right to say <em>I don't know</em>. That's the work: labels and an eval suite
+      for Southeast Asian land-use vocabulary, before any model.
+    </p>
+
+    <figure class="mt-12">
+      <div class="plate-frame">
+        <img
+          src="/plates/sumbing.webp"
+          width="1400"
+          height="944"
+          alt="Lithograph of Gunung Sumbing on Java: a conical volcano above jungle and plantations"
+          class="block h-auto w-full"
+          loading="lazy"
+        />
+      </div>
+      <figcaption class="stamp-text mt-3 text-ink-soft">
+        gunung sumbing, lithograph after junghuhn, 1853–54 — the model is supposed to read this without being told what it is
+      </figcaption>
+    </figure>
+
+    <section class="mt-16 max-w-2xl">
+      <h2 class="text-[1.5rem] text-ink-deep">Status</h2>
+      <p class="mt-4">
+        No endpoint, and none will exist until the eval suite does. Before any model ships,
+        the hand-checked label-to-class examples ship first — frozen and versioned, so you
+        can hold the demo to the same yardstick as the benchmark.
+      </p>
+      <p class="mt-4">
+        And if the small head can't beat a plain logistic-regression baseline on a
+        spatially held-out test, this page will say that instead of showing a demo.
+      </p>
+    </section>
+
+    <section class="mt-16 max-w-2xl">
+      <h2 class="text-[1.5rem] text-ink-deep">Known before launch</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5">
+        <li>
+          The embeddings are annual composites; floods and crop cycles are averaged away.
+          Do not expect sub-annual change.
+        </li>
+        <li>
+          Shipped probabilities are not calibrated to your ground truth until refit on your
+          own data. Treat them as a ranking, not a truth.
+        </li>
+        <li>
+          Never compare results across embedding versions without pinning both the model
+          and the dataset version.
+        </li>
+      </ul>
+    </section>
+  </div>
+</Base>

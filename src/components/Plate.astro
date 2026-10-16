@@ -1,0 +1,30 @@
+---
+interface Props {
+  shelf: "tools" | "models" | "data";
+  title: string;
+  status: string;
+  statusTone?: "accent" | "muted" | "ink";
+  href?: string;
+}
+
+import Stamp from "./Stamp.astro";
+
+const { shelf, title, status, statusTone = "muted", href } = Astro.props;
+const Tag = href ? "a" : "div";
+---
+<Tag
+  {...href ? { href } : {}}
+  class:list={[
+    "plate-frame block bg-paper p-6 no-underline md:p-7",
+    href && "hover:bg-paper-deep/50",
+  ]}
+>
+  <div class="flex items-center justify-between gap-4">
+    <span class="stamp-text text-ink-soft">{shelf}</span>
+    <Stamp label={status} tone={statusTone} />
+  </div>
+  <h3 class="mt-4 text-[1.45rem] leading-snug text-ink-deep">{title}</h3>
+  <div class="mt-2 text-ink">
+    <slot />
+  </div>
+</Tag>
