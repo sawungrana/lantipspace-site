@@ -22,11 +22,13 @@ INK = (20, 44, 71)  # #142c47 ink-deep
 # crop = (left, right, top, bottom) as fractions of the source image
 PLATES = [
     dict(name="batavia-roadstead", src="batavia-roadstead.jpg",
-         crop=(0.07, 0.93, 0.03, 0.88), width=1400, quality=71),
+         crop=(0.07, 0.93, 0.03, 0.88), width=1440, quality=66),
+    dict(name="footer-strip", src="batavia-roadstead.jpg",
+         crop=(0.07, 0.93, 0.44, 0.80), width=1600, quality=70),
     dict(name="banda-roadstead", src="banda-roadstead.jpg",
-         crop=(0.155, 0.845, 0.145, 0.78), width=1400, quality=78),
+         crop=(0.155, 0.845, 0.145, 0.78), width=1800, quality=66),
     dict(name="sumbing", src="sumbing.jpg",
-         crop=(0.055, 0.945, 0.045, 0.80), width=1400, quality=78),
+         crop=(0.055, 0.945, 0.045, 0.80), width=1800, quality=66),
     dict(name="batavia-map", src="batavia-map.jpg",
          crop=(0.02, 0.98, 0.235, 0.94), width=1000, quality=80),
     dict(name="batavia-cartouche", src="batavia-map.jpg",

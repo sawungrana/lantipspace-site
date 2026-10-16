@@ -12,6 +12,7 @@ Originals live in `assets-src/plates/` (not committed; re-download from the link
 | Output | Work | Source | License |
 |---|---|---|---|
 | `batavia-roadstead.webp` | *Gezicht op Batavia*, 1705, RP-P-2018-3197 (ships on the Batavia roadstead) | [Rijksmuseum via Commons](https://commons.wikimedia.org/wiki/File:Gezicht_op_Batavia,_RP-P-2018-3197.jpg) | CC0 |
+| `footer-strip.webp` | Lower band of the same roadstead view (ships + skyline), cropped for the footer | (same file, cropped) | CC0 |
 | `banda-roadstead.webp` | *De reede van Banda* (Banda Neira harbor; series *Gezigten uit Neêrlands Indië*), 1843–45, RP-P-2016-2260-7-1 | [Rijksmuseum via Commons](https://commons.wikimedia.org/wiki/File:Gezicht_vanaf_het_water_op_de_haven_van_Banda_Neira_De_reede_van_Banda._Banda_Neira_(titel_op_object)_Molukschen_Archipel_(serietitel_op_object)_Gezigten_uit_Ne%C3%AArlands_Indi%C3%AB_(serietitel_op_object),_RP-P-2016-2260-7-1.jpg) | CC0 |
 | `sumbing.webp` | *Gezicht op de berg Sumbing op Java*, lithograph by C.W. Mieling after Frans Wilhelm Junghuhn, 1853–54 | [Rijksmuseum via Commons](https://commons.wikimedia.org/wiki/File:Gezicht_op_de_berg_Sumbing_op_Java,_Carl_Wilhelm_Mieling_(mogelijk),_naar_Frans_Wilhelm_Junghuhn,_1853_-_1854.jpg) | CC0 |
 | `batavia-map.webp` | *Map of Batavia* (city plan), C.A. van Luepken / Johannes Rach, 1761, AMH-5579-NA | [Nationaal Archief via Commons](https://commons.wikimedia.org/wiki/File:AMH-5579-NA_Map_of_Batavia.jpg) | Public domain |

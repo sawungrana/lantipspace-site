@@ -24,30 +24,31 @@ import rosette from "../ornaments/rosette.svg?raw";
       can edit, not a picture you can't.
     </p>
 
-    <div class="relative mt-12">
-      <div
-        class="ornament pointer-events-none absolute -right-8 -top-8 hidden w-40 text-ink opacity-[0.07] md:block"
-        aria-hidden="true"
-        set:html={rosette}
-      >
-      </div>
-      <figure>
-        <div class="plate-frame">
-          <img
-            src="/plates/batavia-cartouche.webp"
-            width="1150"
-            height="504"
-            alt="Engraved title cartouche from an 18th-century plan of Batavia, with figures and lettering"
-            class="block h-auto w-full"
-            loading="lazy"
-          />
-        </div>
-        <figcaption class="stamp-text mt-3 text-ink-soft">
-          a cartouche — the ornamental frame around a map's title — from an 18th-century plan of batavia
-        </figcaption>
-      </figure>
-    </div>
+  </div>
 
+  <figure class="relative mx-auto mt-12 w-full max-w-[1150px]">
+    <div
+      class="ornament pointer-events-none absolute -right-10 -top-10 hidden w-40 text-ink opacity-[0.07] md:block"
+      aria-hidden="true"
+      set:html={rosette}
+    >
+    </div>
+    <img
+      src="/plates/batavia-cartouche.webp"
+      width="1150"
+      height="504"
+      alt="Engraved title cartouche from an 18th-century plan of Batavia, with figures and lettering"
+      class="block h-auto w-full"
+      loading="lazy"
+    />
+  </figure>
+  <div class="mx-auto mt-3 max-w-4xl px-6">
+    <p class="stamp-text text-ink-soft">
+      a cartouche — the ornamental frame around a map's title — from an 18th-century plan of batavia
+    </p>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-6">
     <section class="mt-16 max-w-2xl">
       <h2 class="text-[1.5rem] text-ink-deep">Status</h2>
       <p class="mt-4">
